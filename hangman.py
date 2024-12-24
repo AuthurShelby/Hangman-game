@@ -30,8 +30,7 @@ def DisplayHangman(wrongs):
         print(i)
 
 def Hidden(word):
-    hide = ['_']*len(word)
-    return hide
+    return ['_']*len(word)
 
 
 def main():
