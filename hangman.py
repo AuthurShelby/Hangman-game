@@ -1,6 +1,7 @@
+from HangmanWords import words
 import random
 
-word = ("JavaScript","Java","Python","SQL","C","Php","HTML","Django","Ruby")
+
 hangman = {
     0:("     ",
        "     ",
@@ -35,11 +36,12 @@ def Hidden(word):
 
 def main():
     print("H A N G M A N")
-    WordChoosen = random.choice(word).lower()
+    WordChoosen = random.choice(words).lower()
     Target = Hidden(WordChoosen)
     wrongs = 0
     max_attempt = 6
-   
+    guessed = []
+
     while True:
         print("\n------")
         DisplayHangman(wrongs)
@@ -55,10 +57,15 @@ def main():
         if guess in WordChoosen:
             for i in range(len(WordChoosen)):
                 if guess == WordChoosen[i]:
-                    Target[i] = guess 
+                    Target[i] = guess
+                    guessed.append(guess)
         else:
             wrongs+=1
-
+        
+        if guess in guessed:
+            print("You already guessed this letter!")
+            continue
+        
         if "_" not in Target:
             print(" ".join(Target))
             print("You win!")
