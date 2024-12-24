@@ -68,8 +68,10 @@ def main():
                 print("\n------")
                 DisplayHangman(wrongs)
                 print("------")
-                print("You lose!")
-                print(f"The word was {WordChoosen}")
+                print("....................")
+                print("\nYou lose!")
+                print(f"The word was {WordChoosen.title()}")
+                print("....................")
                 break
 
     print("________________________________")
